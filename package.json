@@ -1,10 +1,14 @@
 {
-  "name": "browsersync-nodemon-express",
+  "name": "browser-sync-express-boilerplate",
   "version": "1.0.0",
   "description": "ExpressJS server app with live-reloading using BrowserSync, NoDemon and Gulp4",
   "main": "app.js",
   "scripts": {
     "test": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fpegios/browser-sync-express-boilerpate.git"
   },
   "author": "fpegios",
   "license": "ISC",
