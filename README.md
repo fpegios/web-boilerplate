@@ -14,6 +14,7 @@ With the combination of these two, we can achieve the following use-cases:
 Execute the following command to load dependencies:
 ```sh
 $ npm install
+$ npm install -g gulp-cli
 ```
 
 Run the project
