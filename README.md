@@ -13,8 +13,8 @@ With the combination of these two, we can achieve the following use-cases:
 ## Instructions
 Execute the following command to load dependencies:
 ```sh
-$ npm install
 $ npm install -g gulp-cli
+$ npm install
 ```
 
 Run the project
