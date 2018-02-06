@@ -1,0 +1,14 @@
+@import '_variables';
+@import '_colors';
+@import '_fonts';
+@import '_mixins';
+@import '_mediaqueries';
+@import '_normalize';
+
+.page1 {
+    @import 'pages/page1.scss';
+}
+
+.page2 {
+    @import 'pages/page2.scss';
+}

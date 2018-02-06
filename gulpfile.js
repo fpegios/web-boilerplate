@@ -9,6 +9,7 @@ var rename = require('gulp-rename');
 var cleanCSS = require('gulp-clean-css');
 var browserSync = require('browser-sync');
 var del = require('del');
+var bulkSass = require('gulp-sass-bulk-import');
 
 // we'd need a slight delay to reload browsers
 // connected to browser-sync after restarting nodemon
@@ -17,7 +18,7 @@ var BROWSER_SYNC_RELOAD_DELAY = 500;
 // project files' paths
 var paths = {
   styles: {
-    src: 'src/styles/**/*.scss',
+    src: 'src/styles/app.scss',
     dest: 'dist/css/'
   },
   scripts: {
@@ -72,6 +73,7 @@ gulp.task('clean', function () {
 // convert .scss to .css and uglify it
 gulp.task('styles', function () {
   return gulp.src(paths.styles.src)
+    .pipe(bulkSass())
     .pipe(sass())
     .pipe(cleanCSS())
     .pipe(rename({
@@ -115,8 +117,8 @@ gulp.task('update-scripts', function () {
 gulp.task('watch', function () {
   gulp.watch(paths.scripts.src, gulp.parallel('update-scripts'));
   gulp.watch(paths.styles.src,  gulp.parallel('update-styles'));
-  gulp.watch(paths.views.src, browserSync.reload);
-  gulp.watch('index.html', browserSync.reload);
+  gulp.watch(paths.views.src).on('change', browserSync.reload);
+  gulp.watch('index.html').on('change', browserSync.reload);
 });
 
 // start nodemon and browser-sync
