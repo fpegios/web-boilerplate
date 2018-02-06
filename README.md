@@ -1,4 +1,4 @@
-#  Browser-sync + Nodemon + ExpressJS
+#  Browser-sync + Nodemon + ExpressJS + Gulp4
 
 ExpressJS server app with live-reloading using Browser-sync, Nodemon and Gulp4.
 
