@@ -21,3 +21,9 @@ Run the project
 ```sh
 $ gulp
 ```
+
+## Additional
+Clean generated dist folder
+```sh
+$ gulp clean
+```
