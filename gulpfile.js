@@ -18,7 +18,7 @@ var BROWSER_SYNC_RELOAD_DELAY = 500;
 // project files' paths
 var paths = {
   styles: {
-    src: 'src/styles/app.scss',
+    src: 'src/styles/**/*.scss',
     dest: 'dist/css/'
   },
   scripts: {
@@ -72,7 +72,7 @@ gulp.task('clean', function () {
 
 // convert .scss to .css and uglify it
 gulp.task('styles', function () {
-  return gulp.src(paths.styles.src)
+  return gulp.src("src/styles/app.scss", { sourcemaps: true })
     .pipe(bulkSass())
     .pipe(sass())
     .pipe(cleanCSS())
@@ -93,7 +93,8 @@ gulp.task('scripts', function () {
 
 // update style file (watch)
 gulp.task('update-styles', function () {
-  return gulp.src(paths.styles.src)
+  return gulp.src("src/styles/app.scss", { sourcemaps: true })
+    .pipe(bulkSass())
     .pipe(sass())
     .pipe(cleanCSS())
     .pipe(rename({
