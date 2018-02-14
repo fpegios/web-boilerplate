@@ -18,11 +18,11 @@ var BROWSER_SYNC_RELOAD_DELAY = 500;
 // project files' paths
 var paths = {
   styles: {
-    src: 'src/styles/**/*.scss',
+    src: ['src/styles/vendor/*.scss', 'src/styles/vendor/*.css', 'src/styles/**/*.scss'],
     dest: 'dist/css/'
   },
   scripts: {
-    src: 'src/scripts/**/*.js',
+    src: ['src/scripts/vendor/*.js', 'src/scripts/**/*.js'],
     dest: 'dist/js/'
   },
   views: {
