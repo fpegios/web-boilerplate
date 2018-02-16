@@ -25,8 +25,8 @@ var paths = {
     src: ['src/scripts/vendor/*.js', 'src/scripts/**/*.js'],
     dest: 'dist/js/'
   },
-  views: {
-    src: 'src/views/**/*.html'
+  components: {
+    src: 'src/components/**/*.html'
   }
 };
 
@@ -118,7 +118,7 @@ gulp.task('update-scripts', function () {
 gulp.task('watch', function () {
   gulp.watch(paths.scripts.src, gulp.parallel('update-scripts'));
   gulp.watch(paths.styles.src,  gulp.parallel('update-styles'));
-  gulp.watch(paths.views.src).on('change', browserSync.reload);
+  gulp.watch(paths.components.src).on('change', browserSync.reload);
   gulp.watch('index.html').on('change', browserSync.reload);
 });
 

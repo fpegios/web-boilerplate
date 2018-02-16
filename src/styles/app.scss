@@ -5,10 +5,7 @@
 @import '_mediaqueries';
 @import '_normalize';
 
-.page1 {
-    @import 'pages/page1.scss';
-}
-
-.page2 {
-    @import 'pages/page2.scss';
-}
+@import 'components/header.scss';
+@import 'components/footer.scss';
+@import 'components/page1.scss';
+@import 'components/page2.scss';

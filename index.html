@@ -2,27 +2,33 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="ExpressJS server app with live-reloading using BrowserSync, NoDemon and Gulp4">
-    <meta name="keywords" content="ExpressJS, BrowserSync, NoDemon, Gulp4">
-    <meta name="author" content="Fotis Pegios">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="description" content="DESCRIPTION">
+    <meta name="keywords" content="KEYWORDS">
+    <meta name="author" content="AUTHOR">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <link rel="shortcut icon" type="image/x-icon" href="assets/favicon.ico" />
 
-    <title>index.html</title>    
+    <title>TITLE</title>    
 
     <!-- STYLES -->
     <link href="dist/css/main.min.css" rel="stylesheet"/>   
     <!-- STYLES  --> 
 </head>
 <body>
-    <h1>Hello World!</h1>
 
-    <div class="page1">
-        <p class="red">CARD1</p>
-    </div>
-    <div class="page2">
-        <p class="yellow">CARD2</p>
-    </div>
+    <!-- HEADER -->
+    <div data-component="header"></div>
+
+    <!-- PAGE 1 -->
+    <div data-component="page1" class="active"></div>
+
+    <!-- PAGE 2 -->
+    <div data-component="page2" class="hidden"></div>
+
+    <!-- FOOTER -->
+    <div data-component="footer"></div>
     
     <!-- SCRIPTS -->
     <script src="dist/js/main.min.js"></script>
