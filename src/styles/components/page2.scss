@@ -1,0 +1,26 @@
+// scss code for page1
+[data-component="page2"] {
+    width: 100%;
+    height: 100%;
+    background-color: $amber;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+
+    p {
+        color: $indigo; 
+    }
+
+    button {
+        padding: 10px 20px;
+        background-color: $white;
+        color: $blue;
+        font-size: 1em;
+        border: 1px solid $white;
+        border-radius: 5px;
+        box-shadow: 5px 5px 15px -5px $black;
+        cursor: pointer;
+    }
+}
