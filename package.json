@@ -1,5 +1,5 @@
 {
-  "name": "browser-sync-express-boilerplate",
+  "name": "web-boilerplate",
   "version": "1.0.0",
   "description": "ExpressJS server app with live-reloading using BrowserSync, NoDemon and Gulp4",
   "main": "app.js",
