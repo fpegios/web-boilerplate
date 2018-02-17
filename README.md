@@ -30,7 +30,7 @@ You can include different HTML components into `index.html`. For instance if you
 * In the directory *src/styles/components/*, create the file *header.scss*, and it should look like this:
 ```sh
 [data-component="header"] {
-    // scss code regarding footer
+    // scss code regarding header
 }
 ```
 * Insert in the `body` of `index.html` the following line of code:
