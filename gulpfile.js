@@ -93,7 +93,7 @@ gulp.task('scripts', function () {
     .pipe(gulp.dest(paths.scripts.dest));
 });
 
-// copy .html components to dist
+// uglify .html components and add them to dist
 gulp.task('components', function() {
   return gulp.src(paths.components.src, { sourcemaps: true })
     .pipe(htmlmin({collapseWhitespace: true}))
@@ -123,18 +123,16 @@ gulp.task('update-scripts', function () {
     .pipe(browserSync.stream());
 });
 
-// copy .html components to dist
-gulp.task('update-components', function() {
-  return gulp.src(paths.components.src, { sourcemaps: true })
-    .pipe(htmlmin({collapseWhitespace: true}))
-    .pipe(gulp.dest(paths.components.dest));
-});
-
 // watch all files
 gulp.task('watch', function () {
   gulp.watch(paths.scripts.src, gulp.parallel('update-scripts'));
   gulp.watch(paths.styles.src,  gulp.parallel('update-styles'));
-  gulp.watch(paths.components.src).on('change', gulp.series('update-components', browserSync.reload));
+  gulp.watch(paths.components.src).on('change', function(path) {
+    return gulp.src(path, { sourcemaps: true })
+      .pipe(htmlmin({collapseWhitespace: true}))
+      .pipe(gulp.dest(paths.components.dest))
+      .pipe(browserSync.stream());
+  });
   gulp.watch('index.html').on('change', browserSync.reload);
 });
 
