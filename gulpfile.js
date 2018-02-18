@@ -10,6 +10,7 @@ var cleanCSS = require('gulp-clean-css');
 var browserSync = require('browser-sync');
 var del = require('del');
 var bulkSass = require('gulp-sass-bulk-import');
+var htmlmin = require('gulp-htmlmin');
 
 // we'd need a slight delay to reload browsers
 // connected to browser-sync after restarting nodemon
@@ -26,7 +27,8 @@ var paths = {
     dest: 'dist/js/'
   },
   components: {
-    src: 'src/components/**/*.html'
+    src: 'src/components/**/*.html',
+    dest: 'dist/html/'
   }
 };
 
@@ -91,6 +93,13 @@ gulp.task('scripts', function () {
     .pipe(gulp.dest(paths.scripts.dest));
 });
 
+// copy .html components to dist
+gulp.task('components', function() {
+  return gulp.src(paths.components.src, { sourcemaps: true })
+    .pipe(htmlmin({collapseWhitespace: true}))
+    .pipe(gulp.dest(paths.components.dest));
+});
+
 // update style file (watch)
 gulp.task('update-styles', function () {
   return gulp.src("src/styles/app.scss", { sourcemaps: true })
@@ -114,11 +123,18 @@ gulp.task('update-scripts', function () {
     .pipe(browserSync.stream());
 });
 
+// copy .html components to dist
+gulp.task('update-components', function() {
+  return gulp.src(paths.components.src, { sourcemaps: true })
+    .pipe(htmlmin({collapseWhitespace: true}))
+    .pipe(gulp.dest(paths.components.dest));
+});
+
 // watch all files
 gulp.task('watch', function () {
   gulp.watch(paths.scripts.src, gulp.parallel('update-scripts'));
   gulp.watch(paths.styles.src,  gulp.parallel('update-styles'));
-  gulp.watch(paths.components.src).on('change', browserSync.reload);
+  gulp.watch(paths.components.src).on('change', gulp.series('update-components', browserSync.reload));
   gulp.watch('index.html').on('change', browserSync.reload);
 });
 
@@ -129,5 +145,5 @@ gulp.task('start',
 
 // clean dist folder and build scripts and style files
 gulp.task('default', 
-  gulp.series('clean', gulp.parallel('styles', 'scripts'), 'start')
+  gulp.series('clean', gulp.parallel('styles', 'scripts', 'components'), 'start')
 );
