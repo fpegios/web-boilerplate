@@ -4,7 +4,7 @@ ExpressJS server app with live-reloading using Browser-sync, Nodemon and Gulp4.
 ![alt text](https://fpegios.000webhostapp.com/fpegios/images/portfolio/gulp_express_browsersync_nodemon.png)
 
 ## Description
-With the combination of these two, we can achieve the following use-cases:
+With the combination of Browser-sync, Nodemon and Gulp4, we can achieve the following use-cases:
 * Inject changes into loaded page, when CSS are modified, without reloading the whole page.
 * Reload page when affected files are modified (HTML, partials, client-side JavaScript code).
 * Restart server when core server files are modified.
