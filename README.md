@@ -39,7 +39,7 @@ You can include different HTML components into `index.html`. For instance if you
 ``` sh
 <div data-component="header"></div>
 ```
-The function `includeComponents()`, which exists in the file `src/scripts/main.js`, is responsible for including the HTML components into the DOM.
+The function `includeComponents()`, which exists in the file `src/scripts/functions.js`, is responsible for including the HTML components into the DOM.
 
 When all the the components are loaded, then the function `initClickEvents()`, which exists in the file `src/scripts/click-events.js`, is called. In this function, all click-events have to be declared.
 
